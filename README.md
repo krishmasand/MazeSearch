@@ -1,0 +1,2 @@
+# MazeSearch
+Maze Search Project
