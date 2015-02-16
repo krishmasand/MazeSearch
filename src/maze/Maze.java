@@ -1,8 +1,6 @@
 package maze;
 import java.io.*;
 
-import maze.*;
-
 public class Maze {
 	Point[][] grid;
 	int rows = 0;
@@ -10,11 +8,8 @@ public class Maze {
 
 	Point start;
 	Point end;
-	Point currentLocation;
 
 	public Maze(String name) throws FileNotFoundException, IOException{
-		
-		String mazeString = "";
 
 		File file = new File(name + ".txt");
 		if ( !file.exists() ){
@@ -33,7 +28,6 @@ public class Maze {
 	            sb.append(System.lineSeparator());
 	            line = br.readLine();
 	        }
-	        mazeString = sb.toString();
 	    } finally {
 	       br.close();
 	    }
@@ -42,11 +36,11 @@ public class Maze {
 	    
 	    BufferedReader br2 = new BufferedReader(new FileReader(name + ".txt"));
 	    try {
-	        StringBuilder sb = new StringBuilder();
 	        String line = br2.readLine();
 	        int rowIndex = 0;
 	        PointType type = null;
 	        boolean startBool = false;
+	        boolean endBool = false;
 	
 	        while (line != null) {
 	        	
@@ -61,6 +55,7 @@ public class Maze {
 	        		}
 	        		else if(line.charAt(i)=='.'){
 	        			type = PointType.DOT;
+	        			endBool = true;
 	        		}
 	        		else if(line.charAt(i)=='P'){
 	        			type = PointType.START;
@@ -71,6 +66,10 @@ public class Maze {
 	        		if(startBool){
 	        			startBool = false;
 	        			start = grid[i][rowIndex];
+	        		}
+	        		if(endBool){
+	        			endBool = false;
+	        			end = grid[i][rowIndex];
 	        		}
 	        		
 

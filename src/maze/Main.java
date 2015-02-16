@@ -1,24 +1,27 @@
 package maze;
 
-import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 
 public class Main {
 	
 	public static void main(String [] args) throws FileNotFoundException, IOException{
 		
-		//Print Small Maze
-		Maze m = new Maze("smallMaze");
-		System.out.print(m);
+		/* Create Mazes */
+		Maze maze1 = new Maze("smallMaze");
+		Maze maze2 = new Maze("mediumMaze");
+		Maze maze3 = new Maze("bigMaze");
 		
-		//Print Small Maze
-		Maze m2 = new Maze("mediumMaze");
-		System.out.print(m2);
+
+		BFS solution = new BFS(maze1);
+		//System.out.println(solution.solutionDistance);
 		
-		
+		/* Print Mazes */
+		System.out.print(maze1);
+		// System.out.print(maze2);
+		// System.out.print(maze3);
+				
+		System.out.println(solution.nodesExpanded);
 //		//Print Small Maze
 //		for(int j = 0; j < m.rows; j++){
 //			for(int i = 0; i < m.columns; i++){
