@@ -39,4 +39,20 @@ public class Point {
         Point pos = (Point) obj;
         return (pos.x == x && pos.y == y);
     }
+    
+    public String toString(){
+    	if(pointType == PointType.WALL){
+    		return "%";
+    	}
+    	else if(pointType == PointType.EMPTY){
+    		return " ";
+    	}
+    	else if(pointType == PointType.DOT){
+    		return ".";
+    	}
+    	else if(pointType == PointType.START){
+    		return "P";
+    	}
+    	return null;
+    }
 }
