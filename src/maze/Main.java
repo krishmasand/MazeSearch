@@ -1,11 +1,10 @@
 package maze;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Main {
 	
-	public static void main(String [] args) throws FileNotFoundException, IOException{
+	public static void main(String [] args) throws IOException{
 		
 		/* Create Mazes */
 		Maze maze1 = new Maze("smallMaze");
@@ -15,14 +14,21 @@ public class Main {
 
 		//BFS solution = new BFS(maze1);
         DFS solution = new DFS(maze1);
+        DFS solution2 = new DFS(maze2);
+        DFS solution3 = new DFS(maze3);
 		//System.out.println(solution.solutionDistance);
 		
 		/* Print Mazes */
 		System.out.print(maze1);
-		// System.out.print(maze2);
-		// System.out.print(maze3);
+        System.out.println();
+        System.out.print(maze2);
+        System.out.println();
+		System.out.print(maze3);
 				
 		System.out.println(solution.nodesExpanded);
+        System.out.println(solution2.nodesExpanded);
+        System.out.println(solution3.nodesExpanded);
+
 //		//Print Small Maze
 //		for(int j = 0; j < m.rows; j++){
 //			for(int i = 0; i < m.columns; i++){
