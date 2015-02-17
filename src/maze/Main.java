@@ -1,5 +1,5 @@
 package maze;
-
+//only exception needed, covers a broad range
 import java.io.IOException;
 
 public class Main {
