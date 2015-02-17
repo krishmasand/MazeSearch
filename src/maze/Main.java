@@ -13,7 +13,8 @@ public class Main {
 		Maze maze3 = new Maze("bigMaze");
 		
 
-		BFS solution = new BFS(maze1);
+		//BFS solution = new BFS(maze1);
+        DFS solution = new DFS(maze1);
 		//System.out.println(solution.solutionDistance);
 		
 		/* Print Mazes */
