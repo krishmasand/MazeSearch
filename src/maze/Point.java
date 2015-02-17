@@ -8,12 +8,14 @@ public class Point {
 	public int x;
 	public int y;
 	PointType pointType;
+    Heuristic heuristic;
 	
 	/* Standard Constructor */
 	public Point(int xCoordinate, int yCoordinate){
 		x = xCoordinate;
 		y = yCoordinate;
 		pointType = null;
+
 	}
 	
 	/* May not need this */
