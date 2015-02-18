@@ -23,13 +23,10 @@ public class BFS {
 		/* Load Start Point onto Frontier. Update stuff */
 		frontier.add(maze.start);
 		visited.add(maze.start);
-		nodesExpanded = 0;
-		
 		/* Actual Algorithm */
 		while( ! frontier.isEmpty())
 		{
 			Point currentPoint = frontier.remove();
-			nodesExpanded++;
 			Vector<Point> adjacentPoints = currentPoint.getAdjacentPoints(maze);
 		
 			/* Loop through adjacent points and update stuff */
@@ -53,8 +50,8 @@ public class BFS {
 	public int getSolution(Maze maze, Point currentPoint){
 		int distance = 0;
 		while(predecessor.containsKey(currentPoint)) {
-			distance++;
-			
+			nodesExpanded++;
+
 			currentPoint = predecessor.get(currentPoint);
 			if(!currentPoint.equals(maze.start))		//This is so we don't have a DOT cover up the "P"
 				currentPoint.pointType = PointType.DOT;
