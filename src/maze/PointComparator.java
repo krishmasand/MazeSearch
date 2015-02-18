@@ -10,6 +10,8 @@ public class PointComparator implements Comparator<Point> {
 
     @Override
     public int compare(Point x, Point y) {
-        return y.heuristic.heuristic - x.heuristic.heuristic;
+        if(x.heuristic.heuristic > y.heuristic.heuristic) return 1;
+        else if (x.heuristic.heuristic < y.heuristic.heuristic) return -1;
+        else return 0;
     }
 }
