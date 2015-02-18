@@ -1,17 +1,16 @@
 package maze;
 
 import java.util.Comparator;
-import java.lang.Math;
 
-/**
- * Created by Aravind on 2/17/15.
+/*
+ * Comparator for the Greedy Best-First PriorityQueue
  */
 public class PointComparator implements Comparator<Point> {
 
     @Override
     public int compare(Point x, Point y) {
-        if(x.heuristic.heuristic > y.heuristic.heuristic) return 1;
-        else if (x.heuristic.heuristic < y.heuristic.heuristic) return -1;
+        if(x.heuristic.distanceHeuristic > y.heuristic.distanceHeuristic) return 1;
+        else if (x.heuristic.distanceHeuristic < y.heuristic.distanceHeuristic) return -1;
         else return 0;
     }
 }

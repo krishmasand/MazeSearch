@@ -10,12 +10,14 @@ public class Main {
 		Maze maze1 = new Maze("smallMaze");
 		Maze maze2 = new Maze("smallMaze");
 		Maze maze3 = new Maze("smallMaze");
+        Maze maze4 = new Maze("smallMaze");
 		
 
 		//BFS solution = new BFS(maze1);
         BFS solution = new BFS(maze1);
         DFS solution2 = new DFS(maze2);
         Greedy solution3 = new Greedy(maze3);
+        Astar solution4 = new Astar(maze4);
         //Greedy solution2 = new Greedy(maze2);
         //Greedy solution3 = new Greedy(maze3);
 
@@ -23,15 +25,19 @@ public class Main {
 		//System.out.println(solution.solutionDistance);
 		
 		/* Print Mazes */
+        System.out.println("Breadth First Search");
 		System.out.print(maze1);
-        System.out.println();
+        System.out.println("Depth First Search");
         System.out.print(maze2);
-        System.out.println();
+        System.out.println("Greedy Best First Search");
 		System.out.print(maze3);
+        System.out.println("A* Search");
+        System.out.print(maze4);
 				
-		System.out.println(solution.nodesExpanded);
-        System.out.println(solution2.nodesExpanded);
-        System.out.println(solution3.nodesExpanded);
+		System.out.println("BFS Path length = " + solution.nodesExpanded);
+        System.out.println("DFS Path Length = " + solution2.nodesExpanded);
+        System.out.println("Greedy Best-First Path Length = " + solution3.nodesExpanded);
+        System.out.println("A* Path Length = " + solution4.nodesExpanded);
 
 //		//Print Small Maze
 //		for(int j = 0; j < m.rows; j++){
