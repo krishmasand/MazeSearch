@@ -13,21 +13,23 @@ public class Main {
 		
 
 		//BFS solution = new BFS(maze1);
-        DFS solution = new DFS(maze1);
-        DFS solution2 = new DFS(maze2);
-        DFS solution3 = new DFS(maze3);
+        Greedy solution = new Greedy(maze3);
+        //Greedy solution2 = new Greedy(maze2);
+        //Greedy solution3 = new Greedy(maze3);
+
+        //BFS solution = new BFS(maze1);
 		//System.out.println(solution.solutionDistance);
 		
 		/* Print Mazes */
-		System.out.print(maze1);
-        System.out.println();
-        System.out.print(maze2);
-        System.out.println();
 		System.out.print(maze3);
+        System.out.println();
+        //System.out.print(maze2);
+        //System.out.println();
+		//System.out.print(maze3);
 				
 		System.out.println(solution.nodesExpanded);
-        System.out.println(solution2.nodesExpanded);
-        System.out.println(solution3.nodesExpanded);
+        //System.out.println(solution2.nodesExpanded);
+        //System.out.println(solution3.nodesExpanded);
 
 //		//Print Small Maze
 //		for(int j = 0; j < m.rows; j++){
