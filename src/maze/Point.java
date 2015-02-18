@@ -1,6 +1,5 @@
 package maze;
 
-import maze.*;
 import java.util.Vector;
 
 public class Point {
@@ -9,7 +8,7 @@ public class Point {
 	public int y;
 	PointType pointType;
     Heuristic heuristic;
-	
+
 	/* Standard Constructor */
 	public Point(int xCoordinate, int yCoordinate){
 		x = xCoordinate;
