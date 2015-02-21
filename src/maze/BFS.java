@@ -23,6 +23,7 @@ public class BFS {
 		/* Load Start Point onto Frontier. Update stuff */
 		frontier.add(maze.start);
 		visited.add(maze.start);
+        nodesExpanded = 0;
 		/* Actual Algorithm */
 		while( ! frontier.isEmpty())
 		{

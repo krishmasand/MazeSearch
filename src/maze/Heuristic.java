@@ -25,6 +25,13 @@ public class Heuristic {
     }
 
     public int pacmanHeuristic(Point point, Maze maze) {
+        int farthestPoint = 0;
+        for(int i = 0; i < maze.columns; i++) {
+            for(int j = 0; j < maze.rows; j++) {
+                farthestPoint = Math.max(maze.grid[i][j].heuristic.distanceHeuristic, farthestPoint);
+            }
+        }
+        int numDotsleft = maze.dotCount;
 
 
 

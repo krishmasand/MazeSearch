@@ -1,18 +1,21 @@
 package maze;
 import java.util.*;
 
-public class DFS {
+public class AstarPacman {
 
     /* Data */
-    public Stack<Point> frontier;
+    public PriorityQueue<Point> frontier;
     public Vector<Point> visited;
     Map<Point, Point> predecessor;
     public int solutionDistance;
     public int nodesExpanded;
 
     /* Constructor */
-    public DFS(Maze maze){
-        frontier    = new Stack<Point>();
+    public AstarPacman(Maze maze){
+        setHeuristics(maze);
+        /* Implements a priorityQueue that uses the Astar Comparator to sort its values */
+        Comparator<Point> comparator = new AstarComparator();
+        frontier    = new PriorityQueue<Point>((maze.grid.length * maze.grid[1].length), comparator);
         visited     = new Vector<Point>();
         predecessor = new HashMap<Point, Point>();
         Point endPoint = findSolution(maze);
@@ -21,21 +24,23 @@ public class DFS {
 
     public Point findSolution(Maze maze){
 		/* Load Start Point onto Frontier. Update stuff */
-        frontier.push(maze.start);
+        frontier.add(maze.start);
         visited.add(maze.start);
         nodesExpanded = 0;
+		
 		/* Actual Algorithm */
         while( ! frontier.isEmpty())
         {
-            Point currentPoint = frontier.pop();
+            Point currentPoint = frontier.remove();
             nodesExpanded++;
+            setHeuristics(maze);
             Vector<Point> adjacentPoints = currentPoint.getAdjacentPoints(maze);
 		
 			/* Loop through adjacent points and update stuff */
             for(Point point : adjacentPoints){
                 if ((point.pointType == PointType.EMPTY || point.pointType == PointType.DOT) && !visited.contains(point)){
                     predecessor.put(point, currentPoint);
-                    frontier.push(point);
+                    frontier.add(point);
                     visited.add(point);
                     if (point == maze.end)
                         return point;
@@ -60,5 +65,15 @@ public class DFS {
 
         }
         return distance;
+    }
+
+    public void setHeuristics(Maze maze) {
+        for(int i = 0; i < maze.columns; i++) {
+            for(int j = 0; j < maze.rows; j++) {
+                if(maze.grid[i][j].pointType == PointType.EMPTY || maze.grid[i][j].pointType == PointType.DOT) {
+                    maze.grid[i][j].heuristic = new Heuristic(maze.grid[i][j], maze);
+                }
+            }
+        }
     }
 }
