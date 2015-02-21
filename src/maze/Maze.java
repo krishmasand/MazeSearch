@@ -9,6 +9,9 @@ public class Maze {
 	Point start;
 	Point end;
 
+    /* When scanning the maze, count up the number of dots that are in the maze (for 1.3 only) */
+    int dotCount;
+
 	public Maze(String name) throws FileNotFoundException, IOException{
 
 		File file = new File(name + ".txt");
