@@ -23,8 +23,6 @@ public class DFS {
 		/* Load Start Point onto Frontier. Update stuff */
         frontier.push(maze.start);
         visited.add(maze.start);
-        nodesExpanded = 0;
-		
 		/* Actual Algorithm */
         while( ! frontier.isEmpty())
         {
