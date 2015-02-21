@@ -10,7 +10,7 @@ public class Maze {
 	Point end;
 
     /* When scanning the maze, count up the number of dots that are in the maze (for 1.3 only) */
-    int dotCount;
+    int dotCount = 0;
 
 	public Maze(String name) throws FileNotFoundException, IOException{
 
