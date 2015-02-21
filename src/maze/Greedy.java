@@ -13,6 +13,9 @@ public class Greedy {
     /* Constructor */
     public Greedy(Maze maze){
         setHeuristics(maze);
+        /* Create a priority queue that uses a comparator. A comparator compares the elements in the priority queue
+        * to sort it. The comparator itself will be defined in the PointComparator class.
+         */
         Comparator<Point> comparator = new PointComparator();
         frontier    = new PriorityQueue<Point>((maze.grid.length * maze.grid[1].length), comparator);
         visited     = new Vector<Point>();

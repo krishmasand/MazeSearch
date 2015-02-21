@@ -34,10 +34,15 @@ public class Main {
         System.out.println("A* Search");
         System.out.print(maze4);
 				
-		System.out.println("BFS Path length = " + solution.nodesExpanded);
-        System.out.println("DFS Path Length = " + solution2.nodesExpanded);
-        System.out.println("Greedy Best-First Path Length = " + solution3.nodesExpanded);
-        System.out.println("A* Path Length = " + solution4.nodesExpanded);
+		System.out.println("BFS Nodes Expanded = " + solution.nodesExpanded);
+        System.out.println("DFS Nodes Expanded = " + solution2.nodesExpanded);
+        System.out.println("Greedy Best-First Nodes Expanded = " + solution3.nodesExpanded);
+        System.out.println("A* Nodes Expanded = " + solution4.nodesExpanded);
+        System.out.println();
+        System.out.println("BFS Solution Distance = " + solution.solutionDistance);
+        System.out.println("DFS Solution Distance = " + solution2.solutionDistance);
+        System.out.println("Greedy Best-First Solution Distance = " + solution3.solutionDistance);
+        System.out.println("A* Solution Distance = " + solution4.solutionDistance);
 
 //		//Print Small Maze
 //		for(int j = 0; j < m.rows; j++){

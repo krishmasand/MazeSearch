@@ -13,6 +13,7 @@ public class Astar {
     /* Constructor */
     public Astar(Maze maze){
         setHeuristics(maze);
+        /* Implements a priorityQueue that uses the Astar Comparator to sort its values */
         Comparator<Point> comparator = new AstarComparator();
         frontier    = new PriorityQueue<Point>((maze.grid.length * maze.grid[1].length), comparator);
         visited     = new Vector<Point>();
