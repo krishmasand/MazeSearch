@@ -63,7 +63,7 @@ public class Main {
         Astar maze_5_astarSolution = new Astar(maze_5_astar);
  
         System.out.println("Special Maze: Should be GOOD for Astar Search");
-        System.out.println(maze_5_astar);
+        System.out.print(maze_5_astar);
         System.out.println("Nodes Expanded = " + maze_5_astarSolution.nodesExpanded);
         System.out.println("Solution Distance = " + maze_5_astarSolution.solutionDistance);
         System.out.println();
@@ -83,7 +83,7 @@ public class Main {
         Astar maze_6_astarSolution = new Astar(maze_6_astar);
  
         System.out.println("Special Maze: Should be BAD for Astar Search");
-        System.out.println(maze_6_astar);
+        System.out.print(maze_6_astar);
         System.out.println("Nodes Expanded = " + maze_6_astarSolution.nodesExpanded);
         System.out.println("Solution Distance = " + maze_6_astarSolution.solutionDistance);
         System.out.println();
