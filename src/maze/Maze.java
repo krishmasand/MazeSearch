@@ -59,7 +59,7 @@ public class Maze {
 	        		else if(line.charAt(i)=='.'){
 	        			type = PointType.DOT;
 	        			endBool = true;
-	        			dotCount++;
+                        dotCount++;
 	        		}
 	        		else if(line.charAt(i)=='P'){
 	        			type = PointType.START;
