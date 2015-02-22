@@ -19,7 +19,7 @@ public class Heuristic {
     public Heuristic(Point point, Maze maze) {
         distanceHeuristic = Math.abs(point.x - maze.end.x) + Math.abs(point.y - maze.end.y);
         astarHeuristic = distanceHeuristic;
-        pacmanHeuristic = pacmanHeuristic(point, maze);
+        //pacmanHeuristic = pacmanHeuristic(point, maze);
     }
 
     public int pacmanHeuristic(Point point, Maze maze) {
