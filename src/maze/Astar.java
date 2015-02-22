@@ -32,6 +32,7 @@ public class Astar {
         while( ! frontier.isEmpty())
         {
             Point currentPoint = frontier.remove();
+            setAdjacentHeuristics(maze, currentPoint);
             nodesExpanded++;
             Vector<Point> adjacentPoints = currentPoint.getAdjacentPoints(maze);
 		
@@ -72,6 +73,14 @@ public class Astar {
                 if(maze.grid[i][j].pointType == PointType.EMPTY || maze.grid[i][j].pointType == PointType.DOT) {
                     maze.grid[i][j].heuristic = new Heuristic(maze.grid[i][j], maze);
                 }
+            }
+        }
+    }
+    public void setAdjacentHeuristics(Maze maze, Point popped) {
+        for(Point point : popped.getAdjacentPoints(maze)) {
+            if ((point.pointType == PointType.EMPTY || point.pointType == PointType.DOT) && !visited.contains(point)){
+                point.heuristic = new Heuristic(point, maze);
+                point.heuristic.astarHeuristic += getSolution(maze, popped);
             }
         }
     }
