@@ -56,11 +56,13 @@ public class Astar {
      * */
     public int getSolution(Maze maze, Point currentPoint){
         int distance = 0;
+        boolean fillDots = false;
+        if (currentPoint == maze.end) fillDots = true;
         while(predecessor.containsKey(currentPoint)) {
             distance++;
 
             currentPoint = predecessor.get(currentPoint);
-            if(!currentPoint.equals(maze.start))		//This is so we don't have a DOT cover up the "P"
+            if(!currentPoint.equals(maze.start) && fillDots)		//This is so we don't have a DOT cover up the "P"
                 currentPoint.pointType = PointType.DOT;
 
         }
