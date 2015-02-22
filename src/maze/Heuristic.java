@@ -36,13 +36,13 @@ public class Heuristic {
         Point secondPoint;
         int twoPointDistance = 0;
         int currentDistance = 0; // temporary variable
-        
+
         /* Loop Through Maze for 1st Point */
         for(int i = 0; i < maze.columns; i++){
             for(int j = 0; j < maze.rows; j++){
                 if(maze.grid[i][j].pointType == PointType.DOT){
                     firstPoint = maze.grid[i][j];
-            		
+
             		/* Loop through maze again to find distances for firstPoint to secondPoint */
                     for (int m = 0; m < maze.columns; m++){
                         for (int n = 0; n < maze.rows; n++){
