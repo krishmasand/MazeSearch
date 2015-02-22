@@ -1,10 +1,12 @@
 package maze;
 import java.io.*;
+import java.util.ArrayList;
 
 public class Maze {
 	Point[][] grid;
 	int rows = 0;
 	int columns = 0;
+	ArrayList<Point> dots = new ArrayList<>();
 
 	Point start;
 	Point end;
@@ -74,6 +76,7 @@ public class Maze {
 	        		if(endBool){
 	        			endBool = false;
 	        			end = grid[i][rowIndex];
+	        			dots.add(grid[i][rowIndex]);
 	        		}
 	        		
 
