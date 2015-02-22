@@ -44,12 +44,15 @@ public class Main {
         /*******/
         /* 1.2 */
         /*******/
+        System.out.println("----------------------");
+        System.out.println("Tests for Section 1.2");
+        System.out.println("----------------------");
         
         /* Greedy */
         Maze maze_5_greedy = new Maze("goodForAStar");
         Greedy maze_5_greedySolution = new Greedy(maze_5_greedy);
  
-        System.out.println("Special Maze: Should be bad for Greedy Search");
+        System.out.println("Special Maze: Should be BAD for Greedy Search");
         System.out.print(maze_5_greedy);
         System.out.println("Nodes Expanded = " + maze_5_greedySolution.nodesExpanded);
         System.out.println("Solution Distance = " + maze_5_greedySolution.solutionDistance);
@@ -59,30 +62,30 @@ public class Main {
         Maze maze_5_astar = new Maze("goodForAStar");
         Astar maze_5_astarSolution = new Astar(maze_5_astar);
  
-        System.out.println("Special Maze: Should be good for Astar Search");
+        System.out.println("Special Maze: Should be GOOD for Astar Search");
         System.out.println(maze_5_astar);
         System.out.println("Nodes Expanded = " + maze_5_astarSolution.nodesExpanded);
         System.out.println("Solution Distance = " + maze_5_astarSolution.solutionDistance);
         System.out.println();
         
         /* Greedy */
-    /*    Maze maze_6_greedy = new Maze("goodForGreedy");
+        Maze maze_6_greedy = new Maze("goodForGreedy");
         Greedy maze_6_greedySolution = new Greedy(maze_6_greedy);
  
-        System.out.println("Special Maze: Should be bad for Greedy Search");
+        System.out.println("Special Maze: Should be GOOD for Greedy Search");
         System.out.print(maze_6_greedy);
         System.out.println("Nodes Expanded = " + maze_6_greedySolution.nodesExpanded);
         System.out.println("Solution Distance = " + maze_6_greedySolution.solutionDistance);
-        System.out.println();*/
+        System.out.println();
         
         /* A-star */
-     /*   Maze maze_6_astar = new Maze("goodForGreedy");
+        Maze maze_6_astar = new Maze("goodForGreedy");
         Astar maze_6_astarSolution = new Astar(maze_6_astar);
  
-        System.out.println("Special Maze: Should be good for Astar Search");
+        System.out.println("Special Maze: Should be BAD for Astar Search");
         System.out.println(maze_6_astar);
         System.out.println("Nodes Expanded = " + maze_6_astarSolution.nodesExpanded);
         System.out.println("Solution Distance = " + maze_6_astarSolution.solutionDistance);
-        System.out.println();*/
+        System.out.println();
 	}	
 }
