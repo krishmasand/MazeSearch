@@ -33,24 +33,26 @@ public class AstarPacman {
         {
             Point currentPoint = frontier.remove();
             nodesExpanded++;
+            predecessor.add(currentPoint);
             Vector<Point> adjacentPoints = currentPoint.getAdjacentPoints(maze);
             
 			/* Loop through adjacent points and update stuff */
             for(Point point : adjacentPoints){
                 if ((point.pointType != PointType.WALL) && !visited.contains(point)){
-                    predecessor.add(point);
                     frontier.add(point);
                     visited.add(point);
                     setFrontierHeuristics(maze);
                     
                     /* Yay - Ate a dot */
                     if (point.pointType == PointType.DOT){
-                        point.pointType = PointType.DOT; //aravind will change this to include ASCII nums/chars.
+                        point.pointType = PointType.EMPTY; //aravind will change this to include ASCII nums/chars.
                         maze.dotCount--;
                         frontier.clear();
                         visited.clear();
+                        setHeuristics(maze);
                         frontier.add(point);
                         visited.add(point);
+                        
                     }
                     
                     /* End Condition = All dots eaten */

@@ -16,8 +16,9 @@ public class PacmanHeuristic {
         numDotsLeft_Heuristic = maze.dotCount;
         farthestDot_Heuristic = calculateFarthestDot(point, maze);
         twoDotDistance_Heuristic = calculateTwoDotDistance(maze);
-        
-        pacmanHeuristic = Math.max(Math.max(numDotsLeft_Heuristic, farthestDot_Heuristic), twoDotDistance_Heuristic);
+        //pacmanHeuristic = 0;
+        //pacmanHeuristic = Math.max(Math.max(numDotsLeft_Heuristic, farthestDot_Heuristic), twoDotDistance_Heuristic);
+        pacmanHeuristic = numDotsLeft_Heuristic;
 	}
 	
 	private int manhattanDistance(Point firstPoint, Point secondPoint){
