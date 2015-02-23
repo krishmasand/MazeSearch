@@ -1,5 +1,5 @@
 package maze;
 
 public enum PointType {
-	WALL, EMPTY, DOT, START
+	WALL, EMPTY, DOT, START, CHARACTER
 }

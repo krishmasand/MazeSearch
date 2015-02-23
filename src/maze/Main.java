@@ -87,5 +87,42 @@ public class Main {
         System.out.println("Nodes Expanded = " + maze_6_astarSolution.nodesExpanded);
         System.out.println("Solution Distance = " + maze_6_astarSolution.solutionDistance);
         System.out.println();
+        
+        /*******/
+        /* 1.3 */
+        /*******/
+        System.out.println("----------------------");
+        System.out.println("Tests for Section 1.3");
+        System.out.println("----------------------");
+        
+        /* smallSearch.txt */
+        Maze maze7 = new Maze("smallSearch");
+        AstarPacman solution7 = new AstarPacman(maze7);
+        
+        System.out.print(maze7);
+        System.out.println("Nodes Expanded = " + solution7.nodesExpanded);
+        System.out.println("Solution Distance = " + solution7.solutionDistance);
+        System.out.println();
+        
+        /* trickySearch.txt */
+        Maze maze8 = new Maze("trickySearch");
+        AstarPacman solution8 = new AstarPacman(maze8);
+        
+        System.out.print(maze8);
+        System.out.println("Nodes Expanded = " + solution8.nodesExpanded);
+        System.out.println("Solution Distance = " + solution8.solutionDistance);
+        System.out.println();
+        
+        /* mediumSearch.txt */
+        Maze maze9 = new Maze("mediumSearch");
+        AstarPacman solution9 = new AstarPacman(maze8);
+        
+        System.out.print(maze9);
+        System.out.println("Nodes Expanded = " + solution9.nodesExpanded);
+        System.out.println("Solution Distance = " + solution9.solutionDistance);
+        System.out.println();
+        
+        
+        /* bigSearch.txt */
 	}	
 }

@@ -7,9 +7,7 @@ import java.util.Comparator;
  */
 public class AstarComparator implements Comparator<Point> {
 
-    /* This comparator sorts the elements of the PriorityQueue by their Astar Heuristic, which is a combination of
-    * their distance from the start and their distance from the end. 
-     */
+    /* This comparator sorts the elements of the PriorityQueue by their Astar Heuristic */
     @Override
     public int compare(Point x, Point y) {
         if(x.heuristic.astarHeuristic > y.heuristic.astarHeuristic) return 1;
