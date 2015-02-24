@@ -174,30 +174,30 @@ public class Main {
         System.out.println();
         
         /* trickySearch.txt */
-        Maze maze8 = new Maze("trickySearch");
+        /*Maze maze8 = new Maze("trickySearch");
         AstarPacman solution8 = new AstarPacman(maze8);
         
         System.out.print(maze8);
         System.out.println("Nodes Expanded = " + solution8.nodesExpanded);
         System.out.println("Solution Distance = " + solution8.solutionDistance);
-        System.out.println();
+        System.out.println();*/
         
         /* mediumSearch.txt */
-        Maze maze9 = new Maze("mediumSearch");
+        /*Maze maze9 = new Maze("mediumSearch");
         AstarPacman solution9 = new AstarPacman(maze9);
         
         System.out.print(maze9);
         System.out.println("Nodes Expanded = " + solution9.nodesExpanded);
         System.out.println("Solution Distance = " + solution9.solutionDistance);
-        System.out.println();
+        System.out.println();*/
         
         /* bigSearch.txt */
-        Maze maze10 = new Maze("bigSearch");
+        /*Maze maze10 = new Maze("bigSearch");
         AstarPacman solution10 = new AstarPacman(maze10);
         
         System.out.print(maze10);
         System.out.println("Nodes Expanded = " + solution10.nodesExpanded);
         System.out.println("Solution Distance = " + solution10.solutionDistance);
-        System.out.println();
+        System.out.println();*/
 	}	
 }

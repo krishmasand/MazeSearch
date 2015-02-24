@@ -4,9 +4,8 @@ import java.util.*;
 public class AstarPacman {
 
     /* Data */
-    public PriorityQueue<Point> frontier;
-    public Vector<Point> visited;
-    ArrayList<Point> predecessor;
+    public PriorityQueue<State> frontier;
+    ArrayList<State> predecessor;
     public int solutionDistance;
     public int nodesExpanded;
     
@@ -14,18 +13,17 @@ public class AstarPacman {
     public AstarPacman(Maze maze){
         setHeuristics(maze);
         /* Implements a priorityQueue that uses the Astar Comparator to sort its values */
-        Comparator<Point> comparator = new AstarPacmanComparator();
-        frontier    = new PriorityQueue<Point>((maze.grid.length * maze.grid[1].length), comparator);
-        visited     = new Vector<Point>();
-        predecessor = new ArrayList<Point>();
+        Comparator<State> comparator = new StateComparator();
+        frontier    = new PriorityQueue<State>((maze.grid.length * maze.grid[1].length), comparator);
+        predecessor = new ArrayList<State>();
         findSolution(maze);
         solutionDistance = getSolution();
     }
 
     public Point findSolution(Maze maze){
 		/* Load Start Point onto Frontier. Update stuff */
-        frontier.add(maze.start);
-        visited.add(maze.start);
+    	State initial = getState(maze);
+        frontier.add(initial);
         nodesExpanded = 0;
 		
 		/* Actual Algorithm */
@@ -38,9 +36,8 @@ public class AstarPacman {
             
 			/* Loop through adjacent points and update stuff */
             for(Point point : adjacentPoints){
-                if ((point.pointType != PointType.WALL) && !visited.contains(point)){
+                if (point.pointType != PointType.WALL){
                     frontier.add(point);
-                    visited.add(point);
                     setFrontierHeuristics(maze);
                     
                     /* Yay - Ate a dot */
@@ -48,11 +45,8 @@ public class AstarPacman {
                         point.pointType = PointType.EMPTY; //aravind will change this to include ASCII nums/chars.
                         maze.dotCount--;
                         frontier.clear();
-                        visited.clear();
                         setHeuristics(maze);
                         frontier.add(point);
-                        visited.add(point);
-                        
                     }
                     
                     /* End Condition = All dots eaten */
@@ -68,7 +62,7 @@ public class AstarPacman {
         return predecessor.size();
     }
 
-    public void setHeuristics(Maze maze) {
+    /*public void setHeuristics(Maze maze) {
         for(int i = 0; i < maze.columns; i++) {
             for(int j = 0; j < maze.rows; j++) {
                 if(maze.grid[i][j].pointType != PointType.WALL) {
@@ -76,11 +70,25 @@ public class AstarPacman {
                 }
             }
         }
-    }
+    }*/
     
-    public void setFrontierHeuristics(Maze maze){
-        for(Point point : frontier){
-        	point.pacmanHeuristic.updatePacmanHeuristic(point, maze);
+    /*public void setFrontierHeuristics(Maze maze){
+        for(State state : frontier){
+        	state.pacmanHeuristic.updatePacmanHeuristic(state, maze);
         }
-    }
+    }*/
+    
+    public State getState(Maze maze){
+		Vector<Point> points= new Vector<Point>();
+		for(int i = 0; i < maze.columns; i++) {
+			for(int j = 0; j < maze.rows; j++) {
+				if(maze.grid[i][j].pointType == PointType.DOT) 
+					points.add(maze.grid[i][j]);
+			}
+		}
+		State state = new State(maze.start, points);
+		return state;
+	}
 }
+
+
