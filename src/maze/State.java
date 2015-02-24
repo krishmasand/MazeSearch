@@ -9,12 +9,13 @@ public class State {
 	int costSoFar;
 	StateHeuristic heuristic;  // Heuristic must be manually set.
     
-    
 	/* Constructor - Heuristic must be set manually */
 	public State(Point pacmanLocation, ArrayList<Point> dots, int costSoFar){
 		this.pacmanLocation = pacmanLocation;
 		this.dots = new ArrayList<Point>(dots); //deep copy
 		this.costSoFar = costSoFar;
+		heuristic = new StateHeuristic(this);
+        heuristic.heuristic += costSoFar;
 	}
 	
 	/* Returns: WALLS, DOTS, and EMPTY spaces */
