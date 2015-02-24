@@ -56,24 +56,22 @@ public class State {
 		}
 		return states;
 	}
-	
-	public 
+
 	// Overriding equals() to compare two objects
     @Override
-    public boolean equals(State obj) {
+    public boolean equals(Object obj) {
         if (obj == this) { // If the object is compared with itself then return true  
             return true;
         }
  
         /* Check if obj is an instance of State or not
           "null instanceof [type]" also returns false */
-        if (!(obj instanceof State)) {
-            return false;
-        }
+        if (!(obj instanceof State)) return false;
          
         /* typecast obj to State so that we can compare data members */
         State pos = (State) obj;
-        return true;
-        //return (pos.x == x && pos.y == y);
+        if(!(pos.pacmanLocation.equals(this.pacmanLocation))) return false;
+        if(pos.dots.containsAll(this.dots) && this.dots.containsAll(pos.dots)) return true;
+        else return false;
     }
 }
