@@ -6,8 +6,8 @@ public class StateComparator implements Comparator<State> {
 
     @Override
     public int compare(State x, State y) {
-        if(x.pacmanHeuristic.pacmanHeuristic > y.pacmanHeuristic.pacmanHeuristic) return 1;
-        else if (x.pacmanHeuristic.pacmanHeuristic < y.pacmanHeuristic.pacmanHeuristic) return -1;
+        if(x.heuristic.heuristic > y.heuristic.heuristic) return 1;
+        else if (x.heuristic.heuristic < y.heuristic.heuristic) return -1;
         else return 0;
     }
 }

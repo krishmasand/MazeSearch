@@ -31,25 +31,19 @@ public class AstarPacman {
             State currentState = frontier.remove();
             nodesExpanded++;
             ArrayList<State> adjacentStates = currentState.getAdjacentStates(maze);
-		
+            
 			/* Loop through adjacent points and update stuff */
             for(State state : adjacentStates){
-            	predecessor.put(state, currentState);
-            	frontier.add(state);
-            	if (state.dots.size() == 0)
-                	return state;
+            	if (!frontier.contains(state)){
+            		predecessor.put(state, currentState);
+            		frontier.add(state);
+            		if (state.dots.size() == 0)
+            			return state;
+            	}
             }
         }
         return null;
     }
-
-    public void setAdjacentHeuristics(Maze maze, State popped) {
-        for(State state : popped.getAdjacentStates(maze)) {
-        	state.heuristic = new StateHeuristic(state);
-            state.heuristic.heuristic += state.costSoFar;
-        }
-    }
-
 }
 
 
