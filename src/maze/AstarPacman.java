@@ -29,9 +29,8 @@ public class AstarPacman {
         while( ! frontier.isEmpty())
         {
             State currentState = frontier.remove();
-            setAdjacentHeuristics(maze, currentState); //need to implement
             nodesExpanded++;
-            ArrayList<State> adjacentStates = currentState.getAdjacentStates(maze);  //need to implement
+            ArrayList<State> adjacentStates = currentState.getAdjacentStates(maze);
 		
 			/* Loop through adjacent points and update stuff */
             for(State state : adjacentStates){
