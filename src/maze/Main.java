@@ -14,13 +14,32 @@ public class Main {
 		Maze maze2 = new Maze("smallMaze");
 		Maze maze3 = new Maze("smallMaze");
         Maze maze4 = new Maze("smallMaze");
+        Maze maze11 = new Maze("smallMaze");
+        Maze maze12 = new Maze("mediumMaze");
+        Maze maze13 = new Maze("bigMaze");
+        
         
         BFS solution = new BFS(maze1);
         DFS solution2 = new DFS(maze2);
         Greedy solution3 = new Greedy(maze3);
         Astar solution4 = new Astar(maze4);
-	
+        DFS solution11 = new DFS(maze11);
+        DFS solution12 = new DFS(maze12);
+        DFS solution13 = new DFS(maze13);
+        
 		/* Print Mazes */
+        System.out.println("Small Maze");
+        System.out.println(maze11);
+        System.out.println("Nodes Expanded = " + solution11.nodesExpanded);
+        System.out.println("Path Cost = " + solution11.solutionDistance);
+        System.out.println("Medium Maze");
+        System.out.println(maze12);
+        System.out.println("Nodes Expanded = " + solution12.nodesExpanded);
+        System.out.println("Path Cost = " + solution12.solutionDistance);
+        System.out.println("Big Maze");
+        System.out.println(maze13);
+        System.out.println("Nodes Expanded = " + solution13.nodesExpanded);
+        System.out.println("Path Cost = " + solution13.solutionDistance);
         System.out.println("Breadth First Search");
 		System.out.println(maze1);
         System.out.println("Depth First Search");
