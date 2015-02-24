@@ -5,90 +5,52 @@ public class AstarPacman {
 
     /* Data */
     public PriorityQueue<State> frontier;
-    ArrayList<State> predecessor;
+    HashMap<State, State> predecessor;
     public int solutionDistance;
     public int nodesExpanded;
     
     /* Constructor */
     public AstarPacman(Maze maze){
-        setHeuristics(maze);
-        /* Implements a priorityQueue that uses the Astar Comparator to sort its values */
+        //setHeuristics(maze); //we do not set heuristics for the maze yet.
         Comparator<State> comparator = new StateComparator();
         frontier    = new PriorityQueue<State>((maze.grid.length * maze.grid[1].length), comparator);
-        predecessor = new ArrayList<State>();
-        findSolution(maze);
-        solutionDistance = getSolution();
+        predecessor = new HashMap<State, State>();
+        State endState = findSolution(maze);
+        solutionDistance = endState.costSoFar;
     }
 
-    public Point findSolution(Maze maze){
-		/* Load Start Point onto Frontier. Update stuff */
-    	State initial = getState(maze);
+    public State findSolution(Maze maze){
+		/* Load Start State onto Frontier. Update stuff */
+    	State initial = new State(maze.start, maze.dots, 0);
         frontier.add(initial);
         nodesExpanded = 0;
 		
 		/* Actual Algorithm */
         while( ! frontier.isEmpty())
         {
-            Point currentPoint = frontier.remove();
+            State currentState = frontier.remove();
+            setAdjacentHeuristics(maze, currentState); //need to implement
             nodesExpanded++;
-            predecessor.add(currentPoint);
-            Vector<Point> adjacentPoints = currentPoint.getAdjacentPoints(maze);
-            
+            ArrayList<State> adjacentStates = currentState.getAdjacentStates(maze);  //need to implement
+		
 			/* Loop through adjacent points and update stuff */
-            for(Point point : adjacentPoints){
-                if (point.pointType != PointType.WALL){
-                    frontier.add(point);
-                    setFrontierHeuristics(maze);
-                    
-                    /* Yay - Ate a dot */
-                    if (point.pointType == PointType.DOT){
-                        point.pointType = PointType.EMPTY; //aravind will change this to include ASCII nums/chars.
-                        maze.dotCount--;
-                        frontier.clear();
-                        setHeuristics(maze);
-                        frontier.add(point);
-                    }
-                    
-                    /* End Condition = All dots eaten */
-                    if (maze.dotCount == 0)
-                        return point;
-                }
+            for(State state : adjacentStates){
+            	predecessor.put(state, currentState);
+            	frontier.add(state);
+            	if (state.dots.size() == 0)
+                	return state;
             }
         }
         return null;
     }
 
-    public int getSolution(){
-        return predecessor.size();
+    public void setAdjacentHeuristics(Maze maze, State popped) {
+        for(State state : popped.getAdjacentStates(maze)) {
+        	state.heuristic = new StateHeuristic(state);
+            state.heuristic.heuristic += state.costSoFar;
+        }
     }
 
-    /*public void setHeuristics(Maze maze) {
-        for(int i = 0; i < maze.columns; i++) {
-            for(int j = 0; j < maze.rows; j++) {
-                if(maze.grid[i][j].pointType != PointType.WALL) {
-                    maze.grid[i][j].pacmanHeuristic = new PacmanHeuristic(maze.grid[i][j], maze);
-                }
-            }
-        }
-    }*/
-    
-    /*public void setFrontierHeuristics(Maze maze){
-        for(State state : frontier){
-        	state.pacmanHeuristic.updatePacmanHeuristic(state, maze);
-        }
-    }*/
-    
-    public State getState(Maze maze){
-		Vector<Point> points= new Vector<Point>();
-		for(int i = 0; i < maze.columns; i++) {
-			for(int j = 0; j < maze.rows; j++) {
-				if(maze.grid[i][j].pointType == PointType.DOT) 
-					points.add(maze.grid[i][j]);
-			}
-		}
-		State state = new State(maze.start, points);
-		return state;
-	}
 }
 
 
