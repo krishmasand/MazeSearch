@@ -16,7 +16,6 @@ public class PacmanHeuristic {
         numDotsLeft_Heuristic = maze.dotCount;
         farthestDot_Heuristic = calculateFarthestDot(point, maze);
         twoDotDistance_Heuristic = calculateTwoDotDistance(maze);
-        //pacmanHeuristic = 0;
         //pacmanHeuristic = Math.max(Math.max(numDotsLeft_Heuristic, farthestDot_Heuristic), twoDotDistance_Heuristic);
         pacmanHeuristic = numDotsLeft_Heuristic;
 	}

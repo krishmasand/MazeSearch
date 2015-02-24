@@ -46,7 +46,6 @@ public class Point {
 			points.add(maze.grid[x][y-1]);
 
 		return points;
-		
 	}
 	// Overriding equals() to compare two objects
     @Override
@@ -61,7 +60,7 @@ public class Point {
             return false;
         }
          
-        /* typecast obj to Position so that we can compare data members */
+        /* typecast obj to Point so that we can compare data members */
         Point pos = (Point) obj;
         return (pos.x == x && pos.y == y);
     }
