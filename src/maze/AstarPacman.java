@@ -44,6 +44,9 @@ public class AstarPacman {
         }
         return null;
     }
+    public int getSolution(Maze maze, State state){    	
+    	return state.costSoFar;
+    }
 }
 
 
